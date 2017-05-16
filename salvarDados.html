@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+ <meta charset="UTF-8">
+
+ <style type="text/css">
+ 	#centro
+				{
+					position: absolute; /* Essas configurações alinham objeto no meio da tela */
+					left: 50%;
+					top: 50%;
+					border-style: solid;
+					border-color: red;
+					color: red;
+
+						margin-top:-50px;
+						margin-left:-50px;
+					
+				}
+ </style>
+<title>Session storage</title>
+<script type="text/javascript">
+function AssignValues()
+{
+sessionStorage.setItem("usuario", document.form1.usuario.value);
+sessionStorage.setItem("senha", document.form1.senha.value);
+sessionStorage.setItem("email", document.form1.email.value);
+}
+ 
+function Value1()
+{
+alert("Valor gravado de usuário é " + sessionStorage.getItem("usuario"));
+}
+ 
+function Value2()
+{
+alert("A senha gravada é " + sessionStorage.getItem("senha"));
+}
+ 
+function Value3()
+{
+alert("O e-mail registrado é " + sessionStorage.getItem("email"));
+}
+</script>
+</head>
+<body>
+<div id="centro">
+<form name="form1" >
+<input type="text" name="usuario" placeholder="Entre com o usuário">
+<br>
+<input type="password" name="senha" placeholder="Insira sua senha">
+<br>
+<input type="text" name="email" placeholder="Coloque o e-mail">
+<br>
+<input type="button" value="Gravar valores" onClick="AssignValues()">
+<br>
+<input type="button" value="Mostrar usuário" onClick="Value1()">
+<br>
+<input type="button" value="Mostrar senha" onClick="Value2()">
+<br>
+<input type="button" value="Mostrar e-mail" onClick="Value3()">
+<br>
+</form></div>
+
+<a href="javascript:window.history.go(-1)"><h1>Voltar</h1></a>
+</body>
+</html>

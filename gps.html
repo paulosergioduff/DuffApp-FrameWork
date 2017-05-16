@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+ <style type="text/css">
+ 	#centro
+				{
+					position: absolute; /* Essas configurações alinham objeto no meio da tela */
+					left: 50%;
+					top: 50%;
+					border-style: solid;
+					border-color: red;
+					color: red;
+
+						margin-top:-50px;
+						margin-left:-50px;
+					
+				}
+ </style>
+	 <meta charset="UTF-8">
+</head>
+<body>
+
+<div id="centro">
+<h1>Obetendo coordenadas</h1>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+    
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+
+
+
+
+<a href="javascript:window.history.go(-1)"><h1>Voltar</h1></a></div>
+</body>
+</html>

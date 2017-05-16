@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+
+
+	<title></title>
+<script type="text/javascript" src="js/cordova1.4.1.js"></script>
+
+	<script type="text/javascript">
+
+							usuarioAtual = document.getElementById('usuario').value;
+							senhaAtual   = document.getElementById('senha').value;
+
+		localStorage.myname = "Olá codigo";
+		var objeto = localStorage.myname; 
+
+		
+
+		function gravarDados()
+				{
+					window.localStorage.setItem("usuario", document.form1.usuario.value);
+					window.localStorage.setItem("senha", document.form1.senha.value);
+				
+				}
+
+		function mostraUsuario()
+{
+alert("Valor gravado de usuário é " + localStorage.getItem("usuario"));
+}
+ 
+function mostraSenha()
+{
+alert("A senha gravada é " + localStorage.getItem("senha"));
+}
+
+	</script>
+</head>
+<body>
+
+<form>
+	<h1>Pegando dados com LocalStorage no Cordova</h1>
+	<div>
+	<form name="form1">
+		Usuário<input type="text" id="usuario"><br>
+		Senha<input type="password" id="senha"><br>
+		<button onclick="gravarDados()">Gravar dados</button><br>
+		<button onclick="mostraUsuario()">Recuperar usuario</button><br>
+		<button onclick="mostraSenha()">Recuperar senha</button>
+<br>	</div>
+</form>
+
+</body>
+</html>

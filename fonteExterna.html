@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style type="text/css">
+ 	#centro
+				{
+					position: absolute; /* Essas configurações alinham objeto no meio da tela */
+					left: 50%;
+					top: 50%;
+					border-style: solid;
+					border-color: red;
+					color: red;
+
+						margin-top:-50px;
+						margin-left:-50px;
+					
+				}
+ </style>
+
+	<title>Camera2</title>
+</head>
+<body>
+
+<div id="centro">
+Exemplos de captura de camera<br>
+<input type="file" accept="image/*;capture=camera"><br>
+
+Captura de Video<br>
+<input type="file" accept="video/*;capture=camcorder"><br>
+
+Captura de Microfone<br>
+<input type="file" accept="audio/*;capture=microphone">
+
+<br>
+Usando getUserMedia<br>
+<video autoplay></video>
+
+<script>
+
+// doc em https://www.html5rocks.com/pt/tutorials/getusermedia/intro/
+
+  var onFailSoHard = function(e) {
+    console.log('Reeeejected!', e);
+  };
+
+  // Not showing vendor prefixes.
+  navigator.getUserMedia('video, audio', function(localMediaStream) {
+    var video = document.querySelector('video');
+    video.src = window.URL.createObjectURL(localMediaStream);
+
+    // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+    // See crbug.com/110938.
+    video.onloadedmetadata = function(e) {
+      // Ready to go. Do some stuff.
+    };
+  }, onFailSoHard);
+</script><br> 
+<a href="javascript:window.history.go(-1)"><h1>Voltar</h1></a></div>
+
+</div>
+
+</body>
+</body>
+</html>

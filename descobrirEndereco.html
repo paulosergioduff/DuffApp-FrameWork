@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style type="text/css">
+    #centro
+                {
+                    position: absolute; /* Essas configurações alinham objeto no meio da tela */
+                    left: 50%;
+                    top: 50%;
+                    border-style: solid;
+                    border-color: red;
+                    color: red;
+
+                        margin-top:-50px;
+                        margin-left:-50px;
+                    
+                }
+ </style>
+<meta charset="UTF-8">
+	<title></title>
+
+	
+</head>
+<body>
+<div id="centro">
+<div id="demo">EndereçoAlvo</div>
+
+
+
+
+<button onclick="getLocation()">Obter valor</button>
+
+
+<a href="javascript:window.history.go(-1)"><h1>Voltar</h1></a>
+
+
+<script type="text/javascript">
+		// Para conseguir sua chave do google dev https://console.developers.google.com
+
+		var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+        gerarRastreador();
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+    
+function showPosition(position) {
+    x.innerHTML="<a href='https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + 
+    "," + position.coords.longitude+"&key=AIzaSyChYO5B9C6LgfLaAxB9Iry8Yj7kGH7SALs'>Obter endereço</a>";
+    document.getElementById('geralink').innerHTML = rastreador;
+}
+
+
+	</script>
+    </div>
+</body>
+</html>
